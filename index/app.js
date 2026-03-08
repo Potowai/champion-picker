@@ -2,9 +2,15 @@ const btnPick = document.getElementById("btn-pick");
 const championName = document.getElementById("champion-name");
 const championRole = document.getElementById("champion-role");
 const buildList = document.getElementById("build-list");
+let lastChampionIndex = -1;
 
 function getRandomChampion() {
-  const index = Math.floor(Math.random() * champions.length);
+  let index;
+  do {
+    index = Math.floor(Math.random() * champions.length);
+  } while (index === lastChampionIndex);
+
+  lastChampionIndex = index;
   return champions[index];
 }
 
